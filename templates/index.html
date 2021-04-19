@@ -1,0 +1,8 @@
+<body>
+<h1>Flask email sending app</h1>
+<form action="{{url_for('sendmessage')}}"method="POST">
+  <input type="email" name="email" placeholder="email">
+  <input type="text" name="Subject"placeholder="Subject" >
+  <textarea type="text" name="msg" required rows="10"placeholder="Message Body!"></textarea>
+<button type="button" name="button">Send</button>
+</body>

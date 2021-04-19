@@ -1,0 +1,60 @@
+<header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand">LTI</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+       <li class="nav-item" style="border-left: 2.5px solid white; padding: 0 15px 0 15px;">
+        <a class="nav-link font-weight-bold text-white"  routerLinkActive="router-link-active" routerLink='/register'>Admin Panel</a>
+      </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+</header>
+
+<form (ngSubmit)="f.form.valid && signup()"#f="ngForm">
+  <div class="row">
+    <div class="col-md-3">
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="username">User Name</label>
+          <input type="name" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter User Name"
+          name="username" [(ngModel)]="register.username">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"
+          name="email" [(ngModel)]="register.email">
+
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+          name="password" [(ngModel)]="register.password">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Confirm Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Confirm Password" pattern="{{register.password}}" #cpass="ngModel"
+          name="confirmpassword" [(ngModel)]="confirmpassword">
+          <span class="text-danger" *ngIf="f.submitted && cpass.errors?.pattern" >Password and Confirm Password does not match!</span>
+        </div>
+          <div class="form-group">
+            <div class="form-control">
+              <label class="checkbox-inline">
+                <input type="checkbox" name="isActive" [(ngModel)]="register.isActive">Is Active
+                </label>
+                </div>
+                </div>
+        <button style="margin-right: 15px" type="submit" class="btn btn-primary">Signup</button>
+        <span class="text-success">{{message}}</span>
+        <button  type="submit" class="btn btn-primary" (click)="login()">Login!</button>
+        </div>
+
+    </div>
+</form>

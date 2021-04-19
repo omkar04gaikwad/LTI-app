@@ -1,0 +1,74 @@
+<div class="container">
+    <h2 style="margin: 45px;">Weekly Activity Tracker</h2>
+    <hr>
+        <form style="margin:35px"(ngSubmit)="getupdatedata()">
+          <div class="form-group">
+    <label>Tower</label>
+    <select class="form-control" name="tower" [(ngModel)]="update.tower">
+      <option value="">Select Tower</option>
+      <option *ngFor="let obj of dataArr">{{obj.towername}}</option>
+      </select>
+      </div>
+      <div class="form-group">
+        <label>Public ID</label>
+        <input type="text" class="form-control" name="public_id" [(ngModel)]="update.public_id">
+        </div>
+        <div class="form-group">
+          <label>Site</label>
+          <input type="text" class="form-control" name="site" [(ngModel)]="update.site">
+          </div>
+          <div class="form-group">
+            <label>Task Number</label>
+            <input type="text" class="form-control" name="tasknumber" [(ngModel)]="update.tasknumber">
+            </div>
+            <div class="form-group">
+              <label>Details</label>
+              <input type="text" class="form-control" name="Details" [(ngModel)]="update.Details">
+              </div>
+
+              <div class="form-group">
+<label>Received On</label>
+<div>
+<input class="form-control" type="datetime-local" value="" id="Receiveddate"
+name="Receiveddate" [(ngModel)]="update.Receiveddate">
+</div>
+</div>
+<div class="form-group">
+<label>Activity Date</label>
+<div>
+<input class="form-control" type="datetime-local" value="" id="Activitydate"
+name="Activitydate" [(ngModel)]="update.Activitydate" required>
+</div>
+</div>
+      <div class="form-group">
+        <label>Resource</label>
+        <select class="form-control" name="Resource" [(ngModel)]="update.Resource">
+          <option value="">Select Resource</option>
+          <option *ngFor="let obj of resoArr">{{obj.resourcename}}</option>
+          </select>
+          </div>
+
+          <div class="form-group">
+            <label>Responsible</label>
+            <select class="form-control" name="Responsible" [(ngModel)]="update.Responsible">
+              <option value="">Select Responsible</option>
+              <option *ngFor="let obj of respArr">{{obj.responname}}</option>
+              </select>
+              </div>
+
+              <div class="form-group">
+                <label>Status</label>
+                <select class="form-control" name="status" [(ngModel)]="update.status">
+                  <option value="">Select Status</option>
+                  <option *ngFor="let obj of statArr">{{obj.statusname}}</option>
+                  </select>
+                  </div>
+
+
+              <div class="form-group"  style="text-align: center;">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="submit" class="btn btn-primary"style="margin-left:880px;" routerLink="/getdata">Go Back</button>
+              </div>
+
+        </form>
+</div>

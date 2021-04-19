@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+td.a {
+  white-space: nowrap;
+}
+
+td.b {
+  white-space: pre-wrap;
+  width:200px;
+}
+
+td.c {
+  white-space: pre-wrap;
+  width:200px;
+}
+</style>
+</head>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand">LTI</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item" style="border-left: 2.5px solid white; padding: 0 15px 0 15px;">
+            <a class="nav-link font-weight-bold text-white"  routerLinkActive="router-link-active" >MLL Command Center</a>
+         </li>
+
+        </ul>
+          <button type="button" class="btn btn-secondary"style="margin-left: 1100px;" (click)="logout()">Logout</button>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="container">
+
+    <div
+        style="margin-top: 25px;
+                margin-bottom:10px ;">
+        <button type="button" class="btn btn-primary"(click)="Addactivity()">Add Activity</button>
+        <button type="button" class="btn btn-primary"style="margin-left: 890px;"(click)="download()">Export Data</button>
+    </div>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Activity Date</th>
+            <th scope="col">Site</th>
+            <th scope="col">Tower</th>
+            <th scope="col">Status</th>
+            <th scope="col">Details</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let obj of formdataArr">
+            <td>{{obj.Activitydate}}</td>
+            <td class="b">{{obj.site}}</td>
+            <td>{{obj.tower}}</td>
+            <td>{{obj.status}}</td>
+            <td class="c">{{obj.Details}}</td>
+            <td>
+                <button type="button" class="btn btn-link"style="margin-left: 100px;" routerLink = "/update/{{obj.id}}">Update</button>
+                <button type="button" class="btn btn-link" style="margin-right: 0px;" (click)="deletedata(obj.id)">Delete</button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+</div>
